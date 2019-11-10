@@ -4,7 +4,7 @@
   Author - Rajarshi Sengupta
 
   Date - 09/11/19
- */
+*/
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
@@ -165,7 +165,7 @@ public class TicTacToe {
             a[2][2]='O';
             return 1;
         }
-        if(a[0][2]=='X' && a[1][1]=='X' && a[2][00 0]==' ') {
+        if(a[2][2]=='X' && a[1][1]=='X' && a[0][0]==' ') {
             a[0][0]='O';
             return 1;
         }
@@ -181,8 +181,8 @@ public class TicTacToe {
             a[1][1]='O';
             return 1;
         }
-        if(a[1][1]=='X' && a[0][2]=='X' && a[0][2]==' ') {
-            a[0][2]='O';
+        if(a[1][1]=='X' && a[0][2]=='X' && a[2][0]==' ') {
+            a[2][0]='O';
             return 1;
         }
         return -1; //Return's -1 if opponent has no next winning move
@@ -196,7 +196,7 @@ public class TicTacToe {
             turn='X';
     }
     public static void main(String args[]) {
-        TicTacToe ob=new TicTacToe()
+        TicTacToe ob=new TicTacToe();
         try{
             System.out.println("-----------------------------------------------------------------------------------");
             System.out.println("                            The Tic Tac Toe Game                                    ");
@@ -237,11 +237,7 @@ public class TicTacToe {
             }
             ob.displayboard();
             ob.isTurn(); //Changing the turn
-            if(ob.isFull()==true && ob.isWinner()=='F') {
-                //If Board is full and we still don't have a winner
-                System.out.println("The game ends in a draw. Thank you for playing this game!");
-                break;
-            }
+
             if(ob.isWinner()=='X') {
                 System.out.println("Congratulations! You have won the game.");
                 break;
@@ -282,17 +278,20 @@ public class TicTacToe {
                         Random rand=new Random();
                         x=rand.nextInt(3); //Generating random values of  and y
                         y=rand.nextInt(3);
-                        while(a[x][y]!=' ')
-                        {
+                        while(a[x][y]!=' '){
                             x=rand.nextInt(3); //until we get an empty cell we keep looking for it
                             y=rand.nextInt(3);
                         }
-                        a[x][y]=ob.turn;2 2
-                        1 1
+                        a[x][y]=ob.turn;
                     }
                 }
 
             }
+        }
+        if(ob.isFull()==true && ob.isWinner()=='F') {
+            //If Board is full and we still don't have a winner
+            ob.displayboard();
+            System.out.println("The game ends in a draw. Thank you for playing this game!");
         }
     }
 }
